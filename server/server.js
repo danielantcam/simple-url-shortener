@@ -8,7 +8,7 @@ const app = express();
 
 /* Middlewares */
 app.use("/", cors({
-    origin: "https://simple-url-shortener-tau.vercel.app/"
+    origin: process.env.FRONTEND_URL
 }));
 app.use("/", express.json());
 
