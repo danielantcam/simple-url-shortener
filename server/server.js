@@ -7,11 +7,13 @@ import { generateSlug } from "./utils.js";
 const app = express();
 
 /* Middlewares */
-app.use("/", cors());
-app.use("/api", express.json());
+app.use("/", cors({
+    origin: "https://simple-url-shortener-tau.vercel.app/"
+}));
+app.use("/", express.json());
 
 /* Endpoint that shortens a link */
-app.post("/api/shorten", async (req, res)=>{
+app.post("/shorten", async (req, res)=>{
     const { link } = req.body;
 
     if(!link) return res.status(400).json({ error: "Bad request: no link provided." });
