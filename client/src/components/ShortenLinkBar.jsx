@@ -30,14 +30,22 @@ export default function ShortenLinkBar(){
 
 
     return (<>
-        <form onSubmit={handleFormSubmit} className="flex justify-center">
+        <form onSubmit={handleFormSubmit}
+            className="
+                flex flex-col w-full gap-4 justify-center
+                md:flex-row md:gap-0
+        ">
             <label htmlFor="url" className="sr-only">Url</label>
             <input type="text" name="url" id="url" placeholder="www.example.com/ultra-mega-super-incredibly-long-slug"
-                className="bg-white rounded-l-md h-12 w-140 px-5 focus:outline-none"
-            />
+                className="
+                    w-full bg-white rounded-md h-12 px-5 focus:outline-none
+                    md:rounded-r-none md:w-150
+            "/>
             <button
-                className="cursor-pointer bg-blue-500 h-12 rounded-r-md px-8 font-bold text-white hover:bg-blue-700 hover:px-10 transition-all duration-400"
-            >Shorten</button>
+                className="
+                    cursor-pointer bg-blue-500 h-12 rounded-md px-8 font-bold text-white hover:bg-blue-700 hover:px-10 transition-all duration-400
+                    md:rounded-l-none
+            ">Shorten</button>
         </form>
 
         {shortenLink.isPending && <Loading/>    /* Loading placeholder */}
