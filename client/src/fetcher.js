@@ -1,4 +1,4 @@
-const BASE_URL = "https://simple-url-shortener.onrender.com";
+const BASE_URL = import.meta.env.VITE_SERVER_URL;
 
 export const mutate = async (method, endpoint, body)=>{
     let fetchParams = {
