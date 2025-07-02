@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_SERVER_URL;
+const BASE_URL = import.meta.env.VITE_SERVER_URL || "http://localhost:3000";
 
 export const mutate = async (method, endpoint, body)=>{
     let fetchParams = {
