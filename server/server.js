@@ -7,10 +7,12 @@ import { generateSlug } from "./utils.js";
 const app = express();
 
 /* Middlewares */
-app.use("/", cors({
-    origin: process.env.FRONTEND_URL
+app.use(cors({
+    origin: process.env.FRONTEND_URL,
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
-app.use("/", express.json());
+app.use(express.json());
 
 /* Endpoint that shortens a link */
 app.post("/shorten", async (req, res)=>{
