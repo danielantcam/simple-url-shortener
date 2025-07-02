@@ -10,7 +10,7 @@ export default function ShortenLinkBar(){
     const [link, setLink] = useState("");
 
     const shortenLink = useMutation({
-        mutationFn: data => mutate("POST", "/shorten", data),
+        mutationFn: data => mutate("POST", "/api/shorten", data),
         onSuccess: result => setLink(result.shortenedLink),
         onError: error => console.error("An error has occured: " + error)
     });
