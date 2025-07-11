@@ -43,7 +43,7 @@ export default function ShortenLinkBar(){
             "/>
             <button
                 className="
-                    cursor-pointer bg-blue-500 h-12 rounded-md px-8 font-bold text-white hover:bg-blue-700 hover:px-10 transition-all duration-400
+                    cursor-pointer bg-blue-600 h-12 rounded-md px-8 font-bold text-white hover:bg-blue-700 hover:px-10 transition-all duration-400
                     md:rounded-l-none
             ">Shorten</button>
         </form>
