@@ -30,7 +30,7 @@ export default function Landing(){
             ">Shorten and share your URL's to the world in just one click.</h3>
             <ShortenLinkBar/>
 
-            <div className="
+            {/*<div className="
                 flex flex-col mt-20 gap-20
                 xl:flex-row xl:mt-30
                 2xl:gap-30
@@ -49,8 +49,8 @@ export default function Landing(){
                 <div className="flex flex-col items-center">
                     <h3 className="text-white font-semibold text-xl mb-4 sm:text-4xl md:text-3xl">🔒Secure and ad free</h3>
                     <p className="text-white text-base text-center sm:text-lg">We’re a privacy-focused link shortener. No ads, no tracking, no spam. Just fast, secure URL shortening with full control over your data. Shorten links confidently with a clean and safe experience.</p>
-                </div>
-            </div>
+                </div> 
+            </div> */}
         </main>
     </>;
 }
