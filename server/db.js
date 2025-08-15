@@ -1,13 +1,8 @@
 import "./config.js";
-import mysql from "mysql2/promise";
+import { Client } from "pg";
 
-export const db = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  port: process.env.DB_PORT,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
-});
+const client = new Client(process.env.DATABASE_URL);
+
+await client.connect();
+
+export default client;

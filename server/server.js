@@ -23,17 +23,19 @@ app.post("/api/shorten", async (req, res)=>{
     }
 
     try{
-        const [{insertId}] = await db.query(
-            `INSERT INTO links (link) VALUES(?)`,
+        const {rows} = await db.query(
+            `INSERT INTO links (link) VALUES($1) RETURNING id`,
             [link]
         );
+
+        const insertId = rows[0].id;
 
         const slug = generateSlug(insertId, link);
 
         await db.query(
             `UPDATE links
-            SET slug = ?
-            WHERE id = ?`,
+            SET slug = $1
+            WHERE id = $2`,
             [slug, insertId]
         );
 
@@ -49,9 +51,9 @@ app.get("/:slug", async (req, res)=>{
     const { slug } = req.params;
 
     try{
-        const [ rows ] = await db.query(
+        const { rows } = await db.query(
             `SELECT link FROM links
-            WHERE slug = ?`,
+            WHERE slug = $1`,
             [slug]
         );
 
