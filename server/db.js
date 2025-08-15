@@ -1,8 +1,8 @@
 import "./config.js";
 import { Client } from "pg";
 
-const client = new Client(process.env.DATABASE_URL);
+const db = new Client(process.env.DATABASE_URL);
 
-await client.connect();
+await db.connect();
 
-export default client;
+export default db;
