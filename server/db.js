@@ -1,8 +1,9 @@
 import "./config.js";
-import { Client } from "pg";
+import { Pool } from "pg";
 
-const db = new Client(process.env.DATABASE_URL);
-
-await db.connect();
+const db = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false }
+});
 
 export default db;
